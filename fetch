@@ -1,0 +1,13 @@
+#!/bin/bash
+Description=$(lsb_release -d)
+Time=$(date)
+Kernel=$(uname -r)
+Shell=$(echo $SHELL)
+Cpu=$(cat /proc/cpuinfo | awk 'NR==5 {print $4 $5 $6}')
+Swap=$(free | awk 'NR==3 {print $3 "/" $2}')
+echo "$Description"
+echo "Time:           $Time"
+echo "Kernel:         $Kernel"
+echo "Shell:          $Shell"
+echo "Cpu:            $Cpu"
+echo "Swap:           $Swap"
